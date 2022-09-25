@@ -13,8 +13,9 @@ dependencies:
   - isort
   - pyright
   - flake8
-  - python-language-server
+  - python-lsp-server
   - black
   - pre-commit
   - commitizen
+  - neovim
 prefix: /home/lcford2/.conda/envs/gpu-dev
