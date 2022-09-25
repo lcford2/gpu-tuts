@@ -1,0 +1,22 @@
+#!/bin/tcsh
+#BSUB -n 1
+#BSUB -W 1000
+#BSUB -J pycuda_ex
+#BSUB -o stdout.%J
+#BSUB -e stderr.%J
+#BSUB -q gpu
+#BSUB -gpu "num=1:mode=shared:mps=yes"
+#BSUB -R "select[rtx2080]"
+
+module load PrgEnv-intel
+module load cuda/11.0
+module load conda
+
+conda activate /usr/local/usrapps/ce791/conda_envs/gpu-env
+setenv NUMBA_CUDA_USE_NVIDIA_BINDING "1"
+
+cd /home/lcford2/how_to_gpu_in_python/scripts/numba
+
+python numba_ex.py
+
+conda deactivate

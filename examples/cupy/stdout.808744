@@ -1,0 +1,79 @@
+Array created of size: 8000.0 MB
+Array Creation CPU Time: 7.412 seconds
+Array Creation GPU Time: 0.517 seconds
+
+Array Multiplication CPU Time: 0.8832 seconds
+Array Multiplication GPU Time: 0.04671 seconds
+
+Multiple Ops CPU Time: 2.915 seconds; Answer=300.00
+Multiple Ops GPU Time: 0.9552 seconds; Answer=300.00
+
+CPU Linear System Solve: 0.0200 seconds; Answer Mean: 0.0010
+GPU Linear System Solve: 1.0141 seconds; Answer Mean: 0.0003
+
+CPU Mat Mul: 0.0273 seconds; Answer Mean: 250.0521
+GPU Mat Mul: 0.6121 seconds; Answer Mean: 250.0521
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@n3h35>
+Subject: Job 808744: <pycuda_ex> in cluster <henry2> Done
+
+Job <pycuda_ex> was submitted from host <login02> by user <lcford2> in cluster <henry2> at Fri Sep 23 21:40:51 2022
+Job was executed on host(s) <n3h35>, in queue <gpu>, as user <lcford2> in cluster <henry2> at Fri Sep 23 21:40:57 2022
+</home/lcford2> was used as the home directory.
+</home/lcford2/how_to_gpu_in_python/scripts/cupy> was used as the working directory.
+Started at Fri Sep 23 21:40:57 2022
+Terminated at Fri Sep 23 21:41:15 2022
+Results reported at Fri Sep 23 21:41:15 2022
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+#!/bin/tcsh
+#BSUB -n 1
+#BSUB -W 1000
+#BSUB -J pycuda_ex
+#BSUB -o stdout.%J
+#BSUB -e stderr.%J
+#BSUB -q gpu
+#BSUB -gpu "num=1:mode=shared:mps=yes"
+#BSUB -R "select[rtx2080]"
+
+module load PrgEnv-intel
+module load cuda/11.0
+module load conda
+
+conda activate /usr/local/usrapps/ce791/conda_envs/gpu-env
+
+cd /home/lcford2/how_to_gpu_in_python/scripts/cupy
+
+python cupy_ex.py
+
+conda deactivate
+
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+    CPU time :                                   16.56 sec.
+    Max Memory :                                 853.31 MB
+    Average Memory :                             853.31 MB
+    Total Requested Memory :                     -
+    Delta Memory :                               -
+    Max Swap :                                   -
+    Max Processes :                              4
+    Max Threads :                                5
+    Run time :                                   25 sec.
+    Turnaround time :                            24 sec.
+
+The output (if any) is above this job summary.
+
+
+
+PS:
+
+Read file <stderr.808744> for stderr output of this job.
+
