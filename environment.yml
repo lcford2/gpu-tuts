@@ -1,0 +1,13 @@
+name: gpu-env
+channels:
+  - defaults
+  - rapidsai
+  - nvidia
+  - conda-forge
+dependencies:
+  - cudatoolkit=11.0
+  - python=3.9
+  - rapids=22.08
+  - pycuda
+  - nvidia::cuda-python
+prefix: /usr/local/usrapps/ce791/conda_envs/gpu-env
