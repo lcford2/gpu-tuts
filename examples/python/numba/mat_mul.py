@@ -1,6 +1,7 @@
+import math
+
 import numpy as np
 from numba import cuda
-import math
 
 # NOTES
 # Block size (number of threads per block) is often crucial.
@@ -24,7 +25,7 @@ def matmul_cpu(A, B, C):
         for j in range(p):
             total = 0
             for k in range(m):
-                total += (A[i][k] * B[k][j])
+                total += A[i][k] * B[k][j]
             C[i][j] = total
 
 
@@ -38,7 +39,7 @@ def matmul(A, B, C):
     if i < n and j < p:
         tmp = 0.0
         for k in range(m):
-            tmp += (A[i, k] * B[k, j])
+            tmp += A[i, k] * B[k, j]
         C[i, j] = tmp
 
 

@@ -1,8 +1,10 @@
+from time import perf_counter as timer
+
 import cupy as cp
 import numpy as np
-from time import perf_counter as timer
-from colorama import init as colorama_init
 from colorama import Fore, Style
+from colorama import init as colorama_init
+
 colorama_init()
 
 CPU_STRING = Fore.BLUE + "CPU" + Style.RESET_ALL
@@ -66,7 +68,9 @@ def solve_linear_system(size):
     s = timer()
     x = np.linalg.solve(X, y)
     e = timer()
-    print(f"{CPU_STRING} - Linear System Solve: {e - s:.4f} seconds; Answer Mean: {x.mean():.4f}")
+    print(
+        f"{CPU_STRING} - Linear System Solve: {e - s:.4f} seconds; Answer Mean: {x.mean():.4f}"
+    )
 
     X = cp.asarray(X)
     y = cp.asarray(y)
@@ -75,7 +79,9 @@ def solve_linear_system(size):
     x = cp.linalg.solve(X, y)
     cp.cuda.Stream.null.synchronize()
     e = timer()
-    print(f"{GPU_STRING} - Linear System Solve: {e - s:.4f} seconds; Answer Mean: {x.mean():.4f}")
+    print(
+        f"{GPU_STRING} - Linear System Solve: {e - s:.4f} seconds; Answer Mean: {x.mean():.4f}"
+    )
 
 
 def matrix_multiplication(size):
@@ -83,7 +89,9 @@ def matrix_multiplication(size):
     s = timer()
     result = np.matmul(X, X)
     e = timer()
-    print(f"{CPU_STRING} - Mat Mul: {e - s:.4f} seconds; Answer Mean: {result.mean():.4f}")
+    print(
+        f"{CPU_STRING} - Mat Mul: {e - s:.4f} seconds; Answer Mean: {result.mean():.4f}"
+    )
 
     # X = cp.random.random((size, size))
     X = cp.asarray(X)
@@ -93,7 +101,9 @@ def matrix_multiplication(size):
     cp.matmul(X, X, out=result)
     cp.cuda.Stream.null.synchronize()
     e = timer()
-    print(f"{GPU_STRING} - Mat Mul: {e - s:.4f} seconds; Answer Mean: {result.mean():.4f}")
+    print(
+        f"{GPU_STRING} - Mat Mul: {e - s:.4f} seconds; Answer Mean: {result.mean():.4f}"
+    )
 
 
 if __name__ == "__main__":
@@ -106,12 +116,3 @@ if __name__ == "__main__":
     solve_linear_system(1000)
     print()
     matrix_multiplication(1000)
-
-
-
-
-
-
-
-
-
