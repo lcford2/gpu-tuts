@@ -1,0 +1,79 @@
+Array created of size: 8000.0 MB
+CPU - Array Creation Time: 7.657 seconds
+GPU - Array Creation Time: 0.5013 seconds
+
+CPU - Array Multiplication Time: 0.7213 seconds
+GPU - Array Multiplication Time: 0.0502 seconds
+
+CPU - Multiple Ops Time: 3.23 seconds; Answer=300.00
+GPU - Multiple Ops Time: 0.9528 seconds; Answer=300.00
+
+CPU - Linear System Solve: 0.0223 seconds; Answer Mean: 0.0008
+GPU - Linear System Solve: 1.0687 seconds; Answer Mean: 0.0008
+
+CPU - Mat Mul: 0.0309 seconds; Answer Mean: 249.6230
+GPU - Mat Mul: 0.6295 seconds; Answer Mean: 249.6230
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@n3h35>
+Subject: Job 878437: <cupy_ex> in cluster <henry2> Done
+
+Job <cupy_ex> was submitted from host <login02> by user <lcford2> in cluster <henry2> at Wed Sep 28 15:37:39 2022
+Job was executed on host(s) <n3h35>, in queue <gpu>, as user <lcford2> in cluster <henry2> at Wed Sep 28 15:37:49 2022
+</home/lcford2> was used as the home directory.
+</home/lcford2/gpu-tuts/examples/python/cupy> was used as the working directory.
+Started at Wed Sep 28 15:37:49 2022
+Terminated at Wed Sep 28 15:38:08 2022
+Results reported at Wed Sep 28 15:38:08 2022
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+#!/bin/tcsh
+#BSUB -n 1
+#BSUB -W 1000
+#BSUB -J cupy_ex
+#BSUB -o cupy_ex.%J.out
+#BSUB -e cupy_ex.%J.err
+#BSUB -q gpu
+#BSUB -gpu "num=1:mode=shared:mps=yes"
+#BSUB -R "select[rtx2080]"
+
+module load PrgEnv-pgi/19.4
+module load cuda/11.0
+module load conda
+
+conda activate /usr/local/usrapps/ce791/conda_envs/gpu-env
+
+cd /home/lcford2/gpu-tuts/examples/python/cupy
+
+python cupy_ex.py
+
+conda deactivate
+
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+    CPU time :                                   17.00 sec.
+    Max Memory :                                 2947.36 MB
+    Average Memory :                             2947.36 MB
+    Total Requested Memory :                     -
+    Delta Memory :                               -
+    Max Swap :                                   -
+    Max Processes :                              4
+    Max Threads :                                5
+    Run time :                                   45 sec.
+    Turnaround time :                            29 sec.
+
+The output (if any) is above this job summary.
+
+
+
+PS:
+
+Read file <cupy_ex.878437.err> for stderr output of this job.
+
