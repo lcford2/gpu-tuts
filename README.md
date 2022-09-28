@@ -41,4 +41,11 @@ Though it is not necessary to be familiar with CUDA concepts to use these packag
   
 
 - [CuPy](https://cupy.dev/)
- 
+  - CuPy is an array library that aims to mimic NumPy's and SciPy's API for GPU accelerated computing with Python
+  - It leverages CUDA and CUDA accelerated libraries like cuBLAS, cuRAND, cuSOLVER, and others. 
+  - In most cases it can be a drop in replacement for numpy.
+    - Instead of `np.array` use `cp.array`
+    - Instead of `from scipy.fft import fft` use `from cupyx.scipy.fft import fft` 
+  - This is the library that many of the [Rapids AI](https://rapids.ai/) libraries are built on. 
+  - It is probably the easiest method to begin writing GPU accelerated code in python
+  - You can find a cupy example in the `examples/python/cupy' directory
