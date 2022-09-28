@@ -54,12 +54,12 @@ def calc_mass_balance_kernel(storage, storage_pre, release, inflow, mb, thread):
 
 if __name__ == "__main__":
     # traditional way to load data with pandas
-    hdf = pd.read_csv("../../data/csv/reservoir_data.csv")
+    hdf = pd.read_csv("../../../data/csv/reservoir_data.csv")
     hdf["storage-pre_acre-feet"] = hdf.groupby("site-name")["storage_acre-feet"].shift(1)
     hdf = hdf.dropna()
 
     # load data with cuDF
-    ddf = cd.read_csv("../../data/csv/reservoir_data.csv")
+    ddf = cd.read_csv("../../../data/csv/reservoir_data.csv")
     ddf["storage-pre_acre-feet"] = ddf.groupby("site-name")["storage_acre-feet"].shift(1)
     ddf = ddf.dropna()
 
