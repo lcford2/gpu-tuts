@@ -2,13 +2,13 @@
 #BSUB -n 1
 #BSUB -W 1000
 #BSUB -J pycuda_ex
-#BSUB -o stdout.%J
-#BSUB -e stderr.%J
+#BSUB -o pycuda_ex.%J.out
+#BSUB -e pycuda_ex.%J.err
 #BSUB -q gpu
 #BSUB -gpu "num=1:mode=shared:mps=yes"
 #BSUB -R "select[rtx2080]"
 
-module load PrgEnv-intel
+module load PrgEnv-pgi/19.4
 module load cuda/11.0
 module load conda
 

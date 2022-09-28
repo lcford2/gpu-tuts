@@ -1,0 +1,70 @@
+   Data Size    | DTtime | CLtime | TLtime | HTtime
+        1048576 | 0.0047 | 0.5069 | 0.5115 | 0.0036
+        2097152 | 0.0048 | 0.0004 | 0.0052 | 0.0034
+        4194304 | 0.0106 | 0.0004 | 0.0110 | 0.0062
+        8388608 | 0.0199 | 0.0005 | 0.0203 | 0.0099
+       16777216 | 0.0394 | 0.0007 | 0.0401 | 0.0197
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@n3h35>
+Subject: Job 878427: <pycuda_ex> in cluster <henry2> Done
+
+Job <pycuda_ex> was submitted from host <login02> by user <lcford2> in cluster <henry2> at Wed Sep 28 15:26:28 2022
+Job was executed on host(s) <n3h35>, in queue <gpu>, as user <lcford2> in cluster <henry2> at Wed Sep 28 15:26:43 2022
+</home/lcford2> was used as the home directory.
+</home/lcford2/gpu-tuts/examples/python/pycuda> was used as the working directory.
+Started at Wed Sep 28 15:26:43 2022
+Terminated at Wed Sep 28 15:26:47 2022
+Results reported at Wed Sep 28 15:26:47 2022
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+#!/bin/tcsh
+#BSUB -n 1
+#BSUB -W 1000
+#BSUB -J pycuda_ex
+#BSUB -o pycuda_ex.%J.out
+#BSUB -e pycuda_ex.%J.err
+#BSUB -q gpu
+#BSUB -gpu "num=1:mode=shared:mps=yes"
+#BSUB -R "select[rtx2080]"
+
+module load PrgEnv-pgi/19.4
+module load cuda/11.0
+module load conda
+
+conda activate /usr/local/usrapps/ce791/conda_envs/gpu-env
+
+cd /home/lcford2/how_to_gpu_in_python/scripts/pycuda
+
+python pycuda_ex.py
+
+conda deactivate
+
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+    CPU time :                                   2.60 sec.
+    Max Memory :                                 30.66 MB
+    Average Memory :                             30.66 MB
+    Total Requested Memory :                     -
+    Delta Memory :                               -
+    Max Swap :                                   -
+    Max Processes :                              4
+    Max Threads :                                5
+    Run time :                                   25 sec.
+    Turnaround time :                            19 sec.
+
+The output (if any) is above this job summary.
+
+
+
+PS:
+
+Read file <pycuda_ex.878427.err> for stderr output of this job.
+
