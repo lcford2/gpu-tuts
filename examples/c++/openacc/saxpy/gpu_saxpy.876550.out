@@ -1,0 +1,60 @@
+GPU Time: 267.585 milliseconds
+CPU Time: 0.85552 milliseconds
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@n3h35>
+Subject: Job 876550: <gpu_saxpy> in cluster <henry2> Done
+
+Job <gpu_saxpy> was submitted from host <login02> by user <lcford2> in cluster <henry2> at Wed Sep 28 14:53:41 2022
+Job was executed on host(s) <n3h35>, in queue <gpu>, as user <lcford2> in cluster <henry2> at Wed Sep 28 14:53:57 2022
+</home/lcford2> was used as the home directory.
+</home/lcford2/gpu-tuts/examples/c++/openacc/saxpy> was used as the working directory.
+Started at Wed Sep 28 14:53:57 2022
+Terminated at Wed Sep 28 14:53:59 2022
+Results reported at Wed Sep 28 14:53:59 2022
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+#!/bin/tcsh
+#BSUB -n 1
+#BSUB -W 1000
+#BSUB -J gpu_saxpy
+#BSUB -o gpu_saxpy.%J.out
+#BSUB -e gpu_saxpy.%J.err
+#BSUB -q gpu
+#BSUB -gpu "num=1:mode=shared:mps=yes"
+#BSUB -R "select[rtx2080]"
+
+module load PrgEnv-pgi/19.4
+
+cd /home/lcford2/gpu-tuts/examples/c++/openacc/saxpy
+
+./saxpy_gpu
+
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+    CPU time :                                   0.52 sec.
+    Max Memory :                                 -
+    Average Memory :                             -
+    Total Requested Memory :                     -
+    Delta Memory :                               -
+    Max Swap :                                   -
+    Max Processes :                              -
+    Max Threads :                                -
+    Run time :                                   7 sec.
+    Turnaround time :                            18 sec.
+
+The output (if any) is above this job summary.
+
+
+
+PS:
+
+Read file <gpu_saxpy.876550.err> for stderr output of this job.
+

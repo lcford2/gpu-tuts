@@ -1,13 +1,13 @@
 CC=pgc++
-CFLAGS=-acc -Minfo
+CFLAGS=-acc -Minfo -std=c++11
 
-all: saxpy saxpy_cpu
+all: saxpy_gpu saxpy_cpu
 
-saxpy:
+saxpy_gpu:
 	${CC} ${CFLAGS} saxpy.cpp -o $@
 
 saxpy_cpu:
 	${CC} ${CFLAGS} -ta=multicore saxpy.cpp -o $@
 
 clean:
-	rm saxpy saxpy_cpu
+	rm saxpy_*
