@@ -1,0 +1,12 @@
+#!/bin/tcsh
+#BSUB -n 1
+#BSUB -W 1000
+#BSUB -J cpu_laplace
+#BSUB -o cpu_laplace2d.%J.out
+#BSUB -e cpu_laplace2d.%J.err
+
+module load PrgEnv-pgi/19.4
+
+cd /home/lcford2/gpu-tuts/examples/c++/openacc/laplace2d
+
+./laplace2d_cpu

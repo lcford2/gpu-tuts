@@ -1,0 +1,59 @@
+Grid Size: [1000, 1000]
+Serial Time: 2.43652 seconds
+Bad Acceleration Time: 0.929493 seconds
+Good Acceleration Time: 0.665058 seconds
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@n2f1-8>
+Subject: Job 876400: <cpu_laplace> in cluster <henry2> Done
+
+Job <cpu_laplace> was submitted from host <login02> by user <lcford2> in cluster <henry2> at Wed Sep 28 14:05:08 2022
+Job was executed on host(s) <n2f1-8>, in queue <serial>, as user <lcford2> in cluster <henry2> at Wed Sep 28 14:05:27 2022
+</home/lcford2> was used as the home directory.
+</home/lcford2/gpu-tuts/examples/c++/openacc/laplace2d> was used as the working directory.
+Started at Wed Sep 28 14:05:27 2022
+Terminated at Wed Sep 28 14:05:31 2022
+Results reported at Wed Sep 28 14:05:31 2022
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+#!/bin/tcsh
+#BSUB -n 1
+#BSUB -W 1000
+#BSUB -J cpu_laplace
+#BSUB -o cpu_laplace2d.%J.out
+#BSUB -e cpu_laplace2d.%J.err
+
+module load PrgEnv-pgi/19.4
+
+cd /home/lcford2/gpu-tuts/examples/c++/openacc/laplace2d
+
+./laplace2d_cpu
+
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+    CPU time :                                   27.59 sec.
+    Max Memory :                                 12.80 MB
+    Average Memory :                             12.80 MB
+    Total Requested Memory :                     -
+    Delta Memory :                               -
+    Max Swap :                                   -
+    Max Processes :                              4
+    Max Threads :                                24
+    Run time :                                   12 sec.
+    Turnaround time :                            23 sec.
+
+The output (if any) is above this job summary.
+
+
+
+PS:
+
+Read file <cpu_laplace2d.876400.err> for stderr output of this job.
+

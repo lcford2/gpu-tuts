@@ -1,0 +1,15 @@
+#!/bin/tcsh
+#BSUB -n 1
+#BSUB -W 1000
+#BSUB -J gpu_laplace2d
+#BSUB -o gpu_laplace2d.%J.out
+#BSUB -e gpu_laplace2d.%J.err
+#BSUB -q gpu
+#BSUB -gpu "num=1:mode=shared:mps=yes"
+#BSUB -R "select[rtx2080]"
+
+module load PrgEnv-pgi/19.4
+
+cd /home/lcford2/gpu-tuts/examples/c++/openacc/laplace2d
+
+./laplace2d_gpu

@@ -1,0 +1,62 @@
+Grid Size: [1000, 1000]
+Serial Time: 2.56476 seconds
+Bad Acceleration Time: 6.5093 seconds
+Good Acceleration Time: 0.00406867 seconds
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@n3h35>
+Subject: Job 876424: <gpu_laplace2d> in cluster <henry2> Done
+
+Job <gpu_laplace2d> was submitted from host <login02> by user <lcford2> in cluster <henry2> at Wed Sep 28 14:17:20 2022
+Job was executed on host(s) <n3h35>, in queue <gpu>, as user <lcford2> in cluster <henry2> at Wed Sep 28 14:17:33 2022
+</home/lcford2> was used as the home directory.
+</home/lcford2/gpu-tuts/examples/c++/openacc/laplace2d> was used as the working directory.
+Started at Wed Sep 28 14:17:33 2022
+Terminated at Wed Sep 28 14:17:44 2022
+Results reported at Wed Sep 28 14:17:44 2022
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+#!/bin/tcsh
+#BSUB -n 1
+#BSUB -W 1000
+#BSUB -J gpu_laplace2d
+#BSUB -o gpu_laplace2d.%J.out
+#BSUB -e gpu_laplace2d.%J.err
+#BSUB -q gpu
+#BSUB -gpu "num=1:mode=shared:mps=yes"
+#BSUB -R "select[rtx2080]"
+
+module load PrgEnv-pgi/19.4
+
+cd /home/lcford2/gpu-tuts/examples/c++/openacc/laplace2d
+
+./laplace2d_gpu
+
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+    CPU time :                                   9.34 sec.
+    Max Memory :                                 23.73 MB
+    Average Memory :                             23.73 MB
+    Total Requested Memory :                     -
+    Delta Memory :                               -
+    Max Swap :                                   128 KB
+    Max Processes :                              4
+    Max Threads :                                8
+    Run time :                                   22 sec.
+    Turnaround time :                            24 sec.
+
+The output (if any) is above this job summary.
+
+
+
+PS:
+
+Read file <gpu_laplace2d.876424.err> for stderr output of this job.
+
