@@ -10,4 +10,4 @@ saxpy_cpu:
 	${CC} ${CFLAGS} -ta=multicore saxpy.cpp -o $@
 
 clean:
-	rm saxpy
+	rm saxpy saxpy_cpu
