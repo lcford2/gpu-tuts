@@ -10,6 +10,6 @@
 
 module load PrgEnv-pgi/19.4
 
-cd /home/lcford2/gpu-tuts/examples/c++/openacc/saxpy
+cd $HOME/gpu-tuts/examples/c++/openacc/saxpy
 
 ./saxpy_gpu

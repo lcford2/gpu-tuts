@@ -10,6 +10,6 @@
 
 module load PrgEnv-pgi/19.4
 
-cd /home/lcford2/gpu-tuts/examples/c++/openacc/laplace2d
+cd $HOME/gpu-tuts/examples/c++/openacc/laplace2d
 
 ./laplace2d_gpu
