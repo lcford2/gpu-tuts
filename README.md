@@ -49,3 +49,13 @@ Though it is not necessary to be familiar with CUDA concepts to use these packag
   - This is the library that many of the [Rapids AI](https://rapids.ai/) libraries are built on. 
   - It is probably the easiest method to begin writing GPU accelerated code in python
   - You can find a cupy example in the `examples/python/cupy' directory
+
+- [Rapids AI](https://rapids.ai/)
+  - A suite of open source libraries and APIs designed to facilitate end-to-end data science pipelines entirely on GPUs
+  - Rapids provides:
+    - [cuDF](https://docs.rapids.ai/api/cudf/stable/) - A near drop-in replacement for pandas that allows dataframe manipulation and storage directly on GPUs. You can find an example using cuDF at `examples/python/rapids/cudf`
+    - [cuML](https://docs.rapids.ai/api/cuml/stable/) - A GPU accelerated machine learning library that attempts to mimic the API of scikit-learn. You can find an example using cuML at `examples/python/rapids/cuml`.
+    - [cuGraph](https://docs.rapids.ai/api/cugraph/stable/) - GPU accelerated graph algorithms that operates on cuDF dataframes. Attempts to mimic the API of NetworkX (the standard graph library in python). An example using cuGraph can be found at `examples/python/rapids/cugraph`
+    - [cuSpatial](https://docs.rapids.ai/api/cuspatial/stable/) - GPU accelerated library for spatial index and join functions. Integrates well with GeoPandas (a common geodata library in python that mimics pandas API). GPUs are well suited to spatial data analytics as you are often applying the same calculations over and over again on gridded data.
+    - [cuSignal](https://docs.rapids.ai/api/cusignal/stable/) - GPU accelerated signal processing that attempts to be a direct port of Scipy Signal
+    - [cuCIM](https://docs.rapids.ai/api/cucim/stable/) - Computer vision and image processing software library for multidimensional images (e.g. biomedical, geospatial, remote sensing, etc...). Attempts to mirror the scikit-image API. 
