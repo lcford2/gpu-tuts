@@ -1,5 +1,9 @@
 # gpu-tuts
 
+## General Purpose GPU Programming Notes
+
+To view a collection of high level notes on General Purpose GPU programming please see the `gpu-notes.ipynb` notebook in the root of this repository.
+
 ## Environment setup
 
 Most of the examples in this repository are designed to be run on Henry2. With that in mind, a `conda` environment was created that can be used when launching jobs with `bsub`. 
