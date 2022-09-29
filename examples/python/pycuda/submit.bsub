@@ -14,7 +14,7 @@ module load conda
 
 conda activate /usr/local/usrapps/ce791/conda_envs/gpu-env
 
-cd /home/lcford2/how_to_gpu_in_python/scripts/pycuda
+cd $HOME/how_to_gpu_in_python/scripts/pycuda
 
 python pycuda_ex.py
 

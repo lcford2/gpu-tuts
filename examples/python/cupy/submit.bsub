@@ -14,7 +14,7 @@ module load conda
 
 conda activate /usr/local/usrapps/ce791/conda_envs/gpu-env
 
-cd /home/lcford2/gpu-tuts/examples/python/cupy
+cd $HOME/gpu-tuts/examples/python/cupy
 
 python cupy_ex.py
 
